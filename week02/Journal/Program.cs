@@ -11,8 +11,8 @@ class Program
         Journal journal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
 
-        string choice = "";
-        while (choice != "6")
+        string userChoice = "";
+        while (userChoice != "6")
         {
             Console.WriteLine("\nJournal Menu:");
             Console.WriteLine("1. Write a new entry");
@@ -22,9 +22,9 @@ class Program
             Console.WriteLine("5. Filter journal entries");
             Console.WriteLine("6. Quit");
             Console.Write("Enter your choice: ");
-            choice = Console.ReadLine();
+            userChoice = Console.ReadLine();
 
-            switch (choice)
+            switch (userChoice)
             {
                 case "1":
                     string prompt = promptGenerator.GetRandomPrompt();

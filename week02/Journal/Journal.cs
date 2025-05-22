@@ -5,22 +5,22 @@ using System.Linq;
 
 public class Journal
 {
-    private List<Entry> entries = new List<Entry>();
+    private List<Entry> _entries = new List<Entry>();
 
     public void AddEntry(Entry entry)
     {
-        entries.Add(entry);
+        _entries.Add(entry);
     }
 
     public void DisplayEntries()
     {
-        if (entries.Count == 0)
+        if (_entries.Count == 0)
         {
             Console.WriteLine("Journal is empty.");
             return;
         }
 
-        foreach (var entry in entries)
+        foreach (Entry entry in _entries)
         {
             entry.Display();
         }
@@ -30,7 +30,7 @@ public class Journal
     {
         using (StreamWriter writer = new StreamWriter(filename))
         {
-            foreach (var entry in entries)
+            foreach (Entry entry in _entries)
             {
                 writer.WriteLine(entry.ToFileString());
             }
@@ -46,21 +46,21 @@ public class Journal
             return;
         }
 
-        entries.Clear();
+        _entries.Clear();
         string[] lines = File.ReadAllLines(filename);
-        foreach (var line in lines)
+        foreach (string line in lines)
         {
-            entries.Add(Entry.FromFileString(line));
+            _entries.Add(Entry.FromFileString(line));
         }
         Console.WriteLine("Journal loaded.");
     }
 
     public void FilterEntries(string search)
     {
-        var filtered = entries.Where(e =>
-            e.Date.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-            e.Prompt.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-            e.Response.Contains(search, StringComparison.OrdinalIgnoreCase)).ToList();
+        var filtered = _entries.Where(entry =>
+            entry.Date.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+            entry.Prompt.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+            entry.Response.Contains(search, StringComparison.OrdinalIgnoreCase)).ToList();
 
         if (filtered.Count == 0)
         {
@@ -69,7 +69,7 @@ public class Journal
         else
         {
             Console.WriteLine($"\nFiltered entries for \"{search}\":");
-            foreach (var entry in filtered)
+            foreach (Entry entry in filtered)
             {
                 entry.Display();
             }
