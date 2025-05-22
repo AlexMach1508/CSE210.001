@@ -7,6 +7,7 @@ class Program
         var reference = new Reference("Proverbs", 3, 5, 6);
         var text = "Trust in the Lord with all thine heart and lean not unto thine own understanding.";
         var scripture = new Scripture(reference, text);
+        var hider = new Hider();
 
         while (true)
         {
@@ -26,7 +27,7 @@ class Program
             if (input == "quit")
                 break;
 
-            scripture.HideRandomWords(3); // Hide 3 words at a time
+            hider.HideRandomWords(scripture, 3); // Use Hider to hide words
         }
     }
 }

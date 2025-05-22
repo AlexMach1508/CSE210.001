@@ -23,18 +23,10 @@ public class Scripture
         }
         Console.WriteLine("\n");
     }
-
-    public void HideRandomWords(int count)
+    
+    public List<Word> GetWords()
     {
-        var visibleWords = _words.Where(w => !w.IsHidden).ToList();
-        int wordsToHide = Math.Min(count, visibleWords.Count);
-
-        for (int i = 0; i < wordsToHide; i++)
-        {
-            int index = _random.Next(visibleWords.Count);
-            visibleWords[index].Hide();
-            visibleWords.RemoveAt(index);
-        }
+        return _words;
     }
 
     public bool AllWordsHidden()
