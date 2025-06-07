@@ -7,14 +7,12 @@ class ReflectionActivity : Activity
     {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
-        // Add more prompts...
     };
 
     private List<string> _questions = new List<string>
     {
         "Why was this experience meaningful to you?",
         "Have you ever done anything like this before?",
-        // Add more questions...
     };
 
     public ReflectionActivity() : base(

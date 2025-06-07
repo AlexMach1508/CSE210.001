@@ -7,7 +7,6 @@ class ListingActivity : Activity
     {
         "Who are people that you appreciate?",
         "What are personal strengths of yours?",
-        // Add more prompts...
     };
 
     public ListingActivity() : base(

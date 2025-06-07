@@ -1,5 +1,11 @@
 using System;
 
+// Exceeded Requirements:
+// - Added a new "GratitudeActivity", allowing users to list things they are grateful for, extending beyond simple listing.
+// - Implemented persistent session tracking: each completed activity is recorded in "activity_log.txt"; logs are loaded at startup and saved on exit.
+// - Ensured unique prompts/questions: Reflection and Listing (and Gratitude) cycle through their full set before repeating.
+// - Enhanced BreathingActivity animation: spinner accelerates during the first half of each breath and decelerates in the second half for a more natural pacing.
+// - Modular design supports easy addition of future activities and centralized logging support.
 
 class Program
 {
